@@ -1,4 +1,4 @@
-# 🗞️ News Topic Classifier Using BERT
+#  News Topic Classifier Using BERT
 
 <div align="center">
 
@@ -35,7 +35,7 @@ Traditional methods like TF-IDF treat text as a bag of words — they miss conte
 
 ##  Model Architecture & Pipeline
 
-![BERT Pipeline](assets/08_bert_pipeline.png)
+![BERT Pipeline](images/preview_pipeline.png)
 
 ```
 AG News Headlines
@@ -104,7 +104,6 @@ task1-bert-news-classifier/
 
 ### Class Distribution
 
-![Dataset Distribution](assets/01_dataset_distribution.png)
 
 > **Key fact:** The dataset is perfectly balanced with 30,000 training samples per class — no oversampling or class weighting required.
 
@@ -159,7 +158,7 @@ demo.launch(share=True)  # Creates public link
 
 ### Token Length Analysis
 
-![Token Lengths](assets/02_token_length_distribution.png)
+ 
 
 > AG News headlines are short — mean ~18 tokens per class. `max_length=128` is safe and efficient.
 
@@ -169,7 +168,7 @@ demo.launch(share=True)  # Creates public link
 
 ### Training & Validation Curves
 
-![Training Curves](assets/03_training_curves.png)
+![ROC Curves](images/preview_roc_curves.png)
 
 | Epoch | Train Loss | Val Loss | Val Accuracy | Val F1 |
 |-------|-----------|---------|-------------|--------|
@@ -193,14 +192,13 @@ demo.launch(share=True)  # Creates public link
 
 ### Confusion Matrix
 
-![Confusion Matrix](assets/04_confusion_matrix.png)
+![Confusion Matrix](images/preview_metrics.png)
 
 > The diagonal dominates with 96%+ correct predictions per class. Most errors occur between **Business ↔ World** (economic sanctions, trade wars straddle both categories) — a human-level ambiguity.
 
 ### Per-Class Metrics
 
-![Per-Class Metrics](assets/05_per_class_metrics.png)
-
+ 
 | Category | Precision | Recall | F1-Score | Support |
 |----------|-----------|--------|----------|---------|
 |  World    | 0.9525 | 0.9153 | 0.9335 | 1,900 |
@@ -215,7 +213,7 @@ demo.launch(share=True)  # Creates public link
 
 ##  Model Comparison — Baselines vs BERT
 
-![Model Comparison](assets/06_model_comparison.png)
+ 
 
 | Model | Accuracy | F1-Macro | Notes |
 |-------|----------|----------|-------|
@@ -228,7 +226,7 @@ demo.launch(share=True)  # Creates public link
 
 ### Before vs After Fine-Tuning (Confidence)
 
-![Confidence Comparison](assets/09_confidence_comparison.png)
+ 
 
 > Zero-shot BERT (no fine-tuning) achieves ~38–52% confidence — barely better than random. After 5 epochs of fine-tuning, confidence jumps to 91–96%, demonstrating the power of task-specific adaptation.
 
